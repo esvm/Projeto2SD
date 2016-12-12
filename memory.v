@@ -1,24 +1,28 @@
-module Memoria(input wire [3:0] seletor,
-	output reg [2:0] funcao,
-	output reg [3:0] valor);
+module Memoria(input wire [3:0] seletor, output reg [2:0] funcao, output reg [3:0] valor);
 	
 	parameter
 	A = 4,
 	C = 2,
 	D = 1;
+	
+	parameter clrld = 3b'000; 
+	parameter addld = 3b'001; 
+	parameter add = 3b'010; 
+	parameter div2 = 3'011;
+	parameter disp = 3'100;
 
 	always begin
 		#2
 		case(seletor)
 			4'b0000:
 			begin
-				funcao <= 0;
-				valor <= 0;
+				funcao <= clrld;
+				valor <= A;
 			end
 			4'b0001:
 			begin
-				funcao <= 0;
-				valor <= 0;
+				funcao <= addld;
+				valor <= C;
 			end
 			4'b0010:
 			begin

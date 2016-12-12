@@ -1,6 +1,7 @@
-input [2:0] Instrucao;
-reg[1:0] Tx, Ty, Tz;
-reg Tula;
+module UC(Instrucao, Tx, Ty, Tz, Tula)
+input wire [2:0] Instrucao;
+output reg[1:0] Tx, Ty, Tz;
+output reg Tula;
 
 parameter clrld = 3b'000; 
 parameter addld = 3b'001; 
@@ -8,7 +9,8 @@ parameter add = 3b'010;
 parameter div2 = 3'011;
 parameter disp = 3'100;
 
-case (Instrucao) adaa
+always begin
+case (Instrucao)
 clrld: 
  begin 
 	Tx <= 2b'01;
@@ -46,3 +48,5 @@ div2:
  end
 
 endcase 
+end
+endmodule 

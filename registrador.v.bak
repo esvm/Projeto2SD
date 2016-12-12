@@ -14,7 +14,7 @@ always@(posedge clk) begin
 	case(cod)
 		HOLD: out <= out;
 		LOAD: out <= in;
-		SHIFTR: out <= (out >> 1);
+		SHIFTR: out <= (out >> 1)
 		RESET: out <= 4'b0000;
 	endcase
 end

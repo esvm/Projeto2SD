@@ -1,4 +1,4 @@
-module Control(Instrucao, Tx, Ty, Tz, Tula)
+module projeto2(Instrucao, Tx, Ty, Tz, Tula)
 input wire [2:0] Instrucao;
 output reg[1:0] Tx, Ty, Tz;
 output reg Tula;

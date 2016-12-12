@@ -1,47 +1,51 @@
-module statem(clk, in, reset, out);
+module Memoria(input wire [3:0] seletor,
+	output reg [2:0] funcao,
+	output reg [3:0] valor);
+	
+	parameter
+	A = 4,
+	C = 2,
+	D = 1;
 
-input clk, in, reset;
-output [3:0] out;
-
-reg [3:0] out;
-reg [1:0] state;
-
-parameter zero=0, one=1, two=2, three=3;
-
-always @(state) 
-     begin
-          case (state)
-               zero:
-                    out = 4'b0000;
-               one:
-                    out = 4'b0001;
-               two:
-                    out = 4'b0010;
-               three:
-                    out = 4'b0100;
-               default:
-                    out = 4'b0000;
-          endcase
-     end
-
-always @(posedge clk or posedge reset)
-     begin
-          if (reset)
-               state = zero;
-          else
-               case (state)
-                    zero:
-                         state = one;
-                    one:
-                         if (in)
-                              state = zero;
-                         else
-                              state = two;
-                    two:
-                         state = three;
-                    three:
-                         state = zero;
-               endcase
-     end
+	always begin
+		#2
+		case(seletor)
+			4'b0000:
+			begin
+				funcao <= 0;
+				valor <= 0;
+			end
+			4'b0001:
+			begin
+				funcao <= 0;
+				valor <= 0;
+			end
+			4'b0010:
+			begin
+				funcao <= 1;
+				valor <= A;
+			end
+			4'b0011:
+			begin
+				funcao <= 1;
+				valor <= C;
+			end
+			4'b0100:
+			begin
+				funcao <= 2;
+				valor <= D;
+			end
+			4'b0101:
+			begin
+				funcao <= 3;
+				valor <= 0;
+			end
+			4'b0110:
+			begin
+				funcao <= 4;
+				valor <= 0;
+			end
+		endcase
+	end
 
 endmodule
