@@ -8,7 +8,7 @@ parameter add = 3b'010;
 parameter div2 = 3'011;
 parameter disp = 3'100;
 
-case (Instrucao)
+case (Instrucao) adaa
 clrld: 
  begin 
 	Tx <= 2b'01;
