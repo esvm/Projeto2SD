@@ -1,14 +1,14 @@
-module Main(clk, outZ, outMEM, outPC, outULA, outX, outY, Tula);
+module Main(clk, outZ);
 input wire clk;
 output wire[3:0] outZ;
-output wire[3:0] outX;
-output output wire[3:0] outY;
-output wire[3:0] outULA;
-output wire[3:0] outPC;
-output wire[3:0] outMEM;
-output wire[3:0] FUNCAO;
-output wire[1:0] Tx, Ty, Tz;
-output wire Tula;
+wire[3:0] outX;
+wire[3:0] outY;
+wire[3:0] outULA;
+wire[3:0] outPC;
+wire[3:0] outMEM;
+wire[3:0] FUNCAO;
+wire[1:0] Tx, Ty, Tz;
+wire Tula;
 
 PC contador(clk, outPC);
 memory mem(outPC, FUNCAO, outMEM);
