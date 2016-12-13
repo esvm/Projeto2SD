@@ -1,49 +1,49 @@
-module projeto2(Instrucao, Tx, Ty, Tz, Tula)
+module Control(Instrucao, Tx, Ty, Tz, Tula);
 input wire [2:0] Instrucao;
 output reg[1:0] Tx, Ty, Tz;
 output reg Tula;
 
-parameter clrld = 3b'000; 
-parameter addld = 3b'001; 
-parameter add = 3b'010; 
-parameter div2 = 3'011;
-parameter disp = 3'100;
+parameter clrld = 3'b000; 
+parameter addld = 3'b001; 
+parameter add = 3'b010; 
+parameter div2 = 3'b011;
+parameter disp = 3'b100;
 
 always begin
 case (Instrucao)
 clrld: 
  begin 
-	Tx <= 2b'01;
-	Ty <= 2b'11;
-	Tz <= 2b'11; 
+	Tx <= 2'b01;
+	Ty <= 2'b11;
+	Tz <= 2'b11; 
 	Tula <= 0; 
  end
 addld: 
  begin 
- 	Tx <= 2b'01;
-	Ty <= 2b'01;
-	Tz <= 2b'00;
+ 	Tx <= 2'b01;
+	Ty <= 2'b01;
+	Tz <= 2'b00;
 	Tula <= 0;
  end
 add: 
  begin
- 	Tx <= 2b'00;
-	Ty <= 2b'01;
-	Tz <= 2b'00;
+ 	Tx <= 2'b00;
+	Ty <= 2'b01;
+	Tz <= 2'b00;
 	Tula <= 0;
  end
 div2: 
  begin
- 	Tx <= 2b'00;
-	Ty <= 2b'10;
-	Tz <= 2b'00;
+ 	Tx <= 2'b00;
+	Ty <= 2'b10;
+	Tz <= 2'b00;
 	Tula <= 0;
  end
  disp:
  begin
- 	Tx <= 2b'11;
-	Ty <= 2b'11;
-	Tz <= 2b'01;
+ 	Tx <= 2'b11;
+	Ty <= 2'b11;
+	Tz <= 2'b01;
 	Tula <= 0;
  end
 

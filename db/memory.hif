@@ -20,7 +20,7 @@ VHSM_ON
 -- Start VHDL Libraries --
 -- End VHDL Libraries --
 # entity
-ULA
+Control
 # storage
 db|memory.(0).cnf
 db|memory.(0).cnf
@@ -30,8 +30,8 @@ ON
 }
 # case_sensitive
 # source_file
-ula.v
-33de8b94958fe919a6b3937798088d1
+control.v
+2325566cf1c0e07ae85332315187848e
 8
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT
@@ -50,14 +50,29 @@ VERILOG_NON_CONSTANT_LOOP_LIMIT
 250
 }
 # user_parameter {
-ADD
-0
+clrld
+000
 PARAMETER_UNSIGNED_BIN
 DEF
-SUB
-1
+addld
+001
 PARAMETER_UNSIGNED_BIN
 DEF
+add
+010
+PARAMETER_UNSIGNED_BIN
+DEF
+div2
+011
+PARAMETER_UNSIGNED_BIN
+DEF
+disp
+100
+PARAMETER_UNSIGNED_BIN
+DEF
+}
+# hierarchies {
+Control:UC
 }
 # macro_sequence
 
@@ -74,7 +89,7 @@ ON
 # case_sensitive
 # source_file
 registrador.v
-9926b2296618479938e243435788c441
+acde416ad6b96783d287e488cec204
 8
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT
@@ -111,7 +126,193 @@ PARAMETER_UNSIGNED_BIN
 DEF
 }
 # hierarchies {
+registrador:REGX
+registrador:REGY
+registrador:REGZ
+}
+# macro_sequence
+
+# end
+# entity
+memory
+# storage
+db|memory.(2).cnf
+db|memory.(2).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+memory.v
+a1439ffab35acb553791db33785d2
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# user_parameter {
+A
+0100
+PARAMETER_UNSIGNED_BIN
+DEF
+B
+0010
+PARAMETER_UNSIGNED_BIN
+DEF
+clrld
+000
+PARAMETER_UNSIGNED_BIN
+DEF
+addld
+001
+PARAMETER_UNSIGNED_BIN
+DEF
+add
+010
+PARAMETER_UNSIGNED_BIN
+DEF
+div2
+011
+PARAMETER_UNSIGNED_BIN
+DEF
+disp
+100
+PARAMETER_UNSIGNED_BIN
+DEF
+}
+# hierarchies {
+memory:mem
+}
+# macro_sequence
+
+# end
+# entity
+ULA
+# storage
+db|memory.(3).cnf
+db|memory.(3).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+ula.v
+bdb52b4e29e36428775ef96f784ac89
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# user_parameter {
+ADD
+0
+PARAMETER_UNSIGNED_BIN
+DEF
+SUB
+1
+PARAMETER_UNSIGNED_BIN
+DEF
+}
+# hierarchies {
+ULA:unidLA
+}
+# macro_sequence
+
+# end
+# entity
+Main
+# storage
+db|memory.(4).cnf
+db|memory.(4).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+main.v
+bfca1ee01c6f42ac84311f98d9c0df87
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
 |
+}
+# macro_sequence
+
+# end
+# entity
+PC
+# storage
+db|memory.(5).cnf
+db|memory.(5).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+pc.v
+57a41c4c8981a8a8e52c612a14e33b3
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+PC:contador
 }
 # macro_sequence
 

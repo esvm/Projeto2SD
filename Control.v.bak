@@ -1,13 +1,13 @@
-module Control(Instrucao, Tx, Ty, Tz, Tula)
+module Control(Instrucao, Tx, Ty, Tz, Tula);
 input wire [2:0] Instrucao;
 output reg[1:0] Tx, Ty, Tz;
 output reg Tula;
 
-parameter clrld = 3b'000; 
-parameter addld = 3b'001; 
-parameter add = 3b'010; 
-parameter div2 = 3'011;
-parameter disp = 3'100;
+parameter clrld = 3'b000; 
+parameter addld = 3'b001; 
+parameter add = 3'b010; 
+parameter div2 = 3'b011;
+parameter disp = 3'b100;
 
 always begin
 case (Instrucao)

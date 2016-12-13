@@ -1,15 +1,14 @@
-module Memoria(input wire [3:0] seletor, output reg [2:0] funcao, output reg [3:0] valor);
+module memory(input wire [3:0] seletor, output reg [2:0] funcao, output reg [3:0] valor);
 	
 	parameter
-	A = 4,
-	C = 2,
-	D = 1;
+	A = 4'b0100,
+	B = 4'b0010;
 	
-	parameter clrld = 3b'000; 
-	parameter addld = 3b'001; 
-	parameter add = 3b'010; 
-	parameter div2 = 3'011;
-	parameter disp = 3'100;
+	parameter clrld = 3'b000; 
+	parameter addld = 3'b001; 
+	parameter add = 3'b010; 
+	parameter div2 = 3'b011;
+	parameter disp = 3'b100;
 
 	always begin
 		#2
@@ -22,24 +21,24 @@ module Memoria(input wire [3:0] seletor, output reg [2:0] funcao, output reg [3:
 			4'b0001:
 			begin
 				funcao <= addld;
-				valor <= C;
+				valor <= B;
 			end
 			4'b0010:
 			begin
-				funcao <= 1;
-				valor <= A;
+				funcao <= add;
+				valor <= 0;
 			end
 			4'b0011:
 			begin
-				funcao <= 1;
-				valor <= C;
+				funcao <= div2;
+				valor <= 0;
 			end
 			4'b0100:
 			begin
-				funcao <= 2;
-				valor <= D;
+				funcao <= disp;
+				valor <= 0;
 			end
-			4'b0101:
+			/*4'b0101:
 			begin
 				funcao <= 3;
 				valor <= 0;
@@ -48,7 +47,7 @@ module Memoria(input wire [3:0] seletor, output reg [2:0] funcao, output reg [3:
 			begin
 				funcao <= 4;
 				valor <= 0;
-			end
+			end*/
 		endcase
 	end
 
