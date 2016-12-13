@@ -10,7 +10,7 @@ LOAD = 2'b01,
 SHIFTR = 2'b10,
 RESET = 2'b11;
 
-always@(posedge clk) begin
+always@(negedge clk) begin
 	case(cod)
 		HOLD: out <= out;
 		LOAD: out <= in;

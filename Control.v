@@ -1,4 +1,5 @@
-module Control(Instrucao, Tx, Ty, Tz, Tula);
+module Control(clk, Instrucao, Tx, Ty, Tz, Tula);
+input wire clk;
 input wire [2:0] Instrucao;
 output reg[1:0] Tx, Ty, Tz;
 output reg Tula;
@@ -9,7 +10,7 @@ parameter add = 3'b010;
 parameter div2 = 3'b011;
 parameter disp = 3'b100;
 
-always begin
+always@(posedge clk) begin
 case (Instrucao)
 clrld: 
  begin 

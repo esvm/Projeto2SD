@@ -38,16 +38,6 @@ module memory(input wire [3:0] seletor, output reg [2:0] funcao, output reg [3:0
 				funcao <= disp;
 				valor <= 0;
 			end
-			/*4'b0101:
-			begin
-				funcao <= 3;
-				valor <= 0;
-			end
-			4'b0110:
-			begin
-				funcao <= 4;
-				valor <= 0;
-			end*/
 		endcase
 	end
 
