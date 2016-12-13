@@ -4,6 +4,7 @@ input wire[1:0] cod;
 input wire clk;
 output reg[3:0] out;
 
+//Código das instruções dos registradores
 parameter
 HOLD = 2'b00,
 LOAD = 2'b01,
