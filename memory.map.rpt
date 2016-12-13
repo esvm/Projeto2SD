@@ -1,5 +1,5 @@
 Analysis & Synthesis report for memory
-Tue Dec 13 10:01:49 2016
+Tue Dec 13 15:37:21 2016
 Quartus II Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
 
 
@@ -17,14 +17,14 @@ Quartus II Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
   9. Registers Removed During Synthesis
  10. General Register Statistics
  11. Multiplexer Restructuring Statistics (Restructuring Performed)
- 12. Parameter Settings for User Entity Instance: registrador:REGX
- 13. Parameter Settings for User Entity Instance: registrador:REGY
- 14. Parameter Settings for User Entity Instance: registrador:REGZ
- 15. Parameter Settings for User Entity Instance: ULA:unidLA
- 16. Parameter Settings for User Entity Instance: Control:UC
- 17. Parameter Settings for User Entity Instance: memory:mem
- 18. Port Connectivity Checks: "memory:mem"
- 19. Port Connectivity Checks: "Control:UC"
+ 12. Parameter Settings for User Entity Instance: memory:mem
+ 13. Parameter Settings for User Entity Instance: Control:UC
+ 14. Parameter Settings for User Entity Instance: registrador:REGX
+ 15. Parameter Settings for User Entity Instance: registrador:REGY
+ 16. Parameter Settings for User Entity Instance: registrador:REGZ
+ 17. Parameter Settings for User Entity Instance: ULA:unidLA
+ 18. Port Connectivity Checks: "Control:UC"
+ 19. Port Connectivity Checks: "memory:mem"
  20. Analysis & Synthesis Messages
 
 
@@ -51,15 +51,15 @@ applicable agreement for further details.
 +------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                 ;
 +-------------------------------+----------------------------------------------+
-; Analysis & Synthesis Status   ; Successful - Tue Dec 13 10:01:49 2016        ;
+; Analysis & Synthesis Status   ; Successful - Tue Dec 13 15:37:21 2016        ;
 ; Quartus II Version            ; 9.1 Build 350 03/24/2010 SP 2 SJ Web Edition ;
 ; Revision Name                 ; memory                                       ;
 ; Top-level Entity Name         ; Main                                         ;
 ; Family                        ; Stratix II                                   ;
 ; Logic utilization             ; N/A                                          ;
-;     Combinational ALUTs       ; 40                                           ;
-;     Dedicated logic registers ; 15                                           ;
-; Total registers               ; 15                                           ;
+;     Combinational ALUTs       ; 35                                           ;
+;     Dedicated logic registers ; 21                                           ;
+; Total registers               ; 21                                           ;
 ; Total pins                    ; 5                                            ;
 ; Total virtual pins            ; 0                                            ;
 ; Total block memory bits       ; 0                                            ;
@@ -75,7 +75,7 @@ applicable agreement for further details.
 ; Option                                                                     ; Setting            ; Default Value      ;
 +----------------------------------------------------------------------------+--------------------+--------------------+
 ; Top-level entity name                                                      ; Main               ; memory             ;
-; Family name                                                                ; Stratix II         ; Stratix II         ;
+; Family name                                                                ; Stratix II         ; Cyclone IV GX      ;
 ; Use Generated Physical Constraints File                                    ; Off                ;                    ;
 ; Use smart compilation                                                      ; Off                ; Off                ;
 ; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
@@ -131,7 +131,7 @@ applicable agreement for further details.
 ; Timing-Driven Synthesis                                                    ; Off                ; Off                ;
 ; Show Parameter Settings Tables in Synthesis Report                         ; On                 ; On                 ;
 ; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
-; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; Synchronization Register Chain Length                                      ; 3                  ; 3                  ;
 ; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
 ; HDL message level                                                          ; Level2             ; Level2             ;
 ; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
@@ -179,38 +179,38 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +-----------------------------------------------+-------+
 ; Resource                                      ; Usage ;
 +-----------------------------------------------+-------+
-; Estimated ALUTs Used                          ; 40    ;
-; Dedicated logic registers                     ; 15    ;
+; Estimated ALUTs Used                          ; 35    ;
+; Dedicated logic registers                     ; 21    ;
 ;                                               ;       ;
 ; Estimated ALUTs Unavailable                   ; 0     ;
 ;                                               ;       ;
-; Total combinational functions                 ; 40    ;
+; Total combinational functions                 ; 35    ;
 ; Combinational ALUT usage by number of inputs  ;       ;
 ;     -- 7 input functions                      ; 0     ;
 ;     -- 6 input functions                      ; 0     ;
 ;     -- 5 input functions                      ; 1     ;
-;     -- 4 input functions                      ; 12    ;
-;     -- <=3 input functions                    ; 27    ;
+;     -- 4 input functions                      ; 14    ;
+;     -- <=3 input functions                    ; 20    ;
 ;                                               ;       ;
 ; Combinational ALUTs by mode                   ;       ;
-;     -- normal mode                            ; 36    ;
+;     -- normal mode                            ; 31    ;
 ;     -- extended LUT mode                      ; 0     ;
 ;     -- arithmetic mode                        ; 4     ;
 ;     -- shared arithmetic mode                 ; 0     ;
 ;                                               ;       ;
-; Estimated ALUT/register pairs used            ; 40    ;
+; Estimated ALUT/register pairs used            ; 35    ;
 ;                                               ;       ;
-; Total registers                               ; 15    ;
-;     -- Dedicated logic registers              ; 15    ;
+; Total registers                               ; 21    ;
+;     -- Dedicated logic registers              ; 21    ;
 ;     -- I/O registers                          ; 0     ;
 ;                                               ;       ;
-; Estimated ALMs:  partially or completely used ; 20    ;
+; Estimated ALMs:  partially or completely used ; 18    ;
 ;                                               ;       ;
 ; I/O pins                                      ; 5     ;
 ; Maximum fan-out node                          ; clk   ;
-; Maximum fan-out                               ; 15    ;
-; Total fan-out                                 ; 163   ;
-; Average fan-out                               ; 2.72  ;
+; Maximum fan-out                               ; 21    ;
+; Total fan-out                                 ; 172   ;
+; Average fan-out                               ; 2.82  ;
 +-----------------------------------------------+-------+
 
 
@@ -219,36 +219,30 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+-------------------+--------------+-------------------+--------------+---------+-----------+-----------+------+--------------+------------------------+--------------+
 ; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Block Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; DSP 36x36 ; Pins ; Virtual Pins ; Full Hierarchy Name    ; Library Name ;
 +----------------------------+-------------------+--------------+-------------------+--------------+---------+-----------+-----------+------+--------------+------------------------+--------------+
-; |Main                      ; 40 (0)            ; 15 (0)       ; 0                 ; 0            ; 0       ; 0         ; 0         ; 5    ; 0            ; |Main                  ; work         ;
-;    |Control:UC|            ; 11 (11)           ; 0 (0)        ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |Main|Control:UC       ; work         ;
-;    |PC:contador|           ; 4 (4)             ; 4 (4)        ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |Main|PC:contador      ; work         ;
+; |Main                      ; 35 (0)            ; 21 (0)       ; 0                 ; 0            ; 0       ; 0         ; 0         ; 5    ; 0            ; |Main                  ; work         ;
+;    |Control:UC|            ; 6 (6)             ; 6 (6)        ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |Main|Control:UC       ; work         ;
+;    |PC:contador|           ; 4 (4)             ; 4 (4)        ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |Main|PC:contador      ;              ;
 ;    |ULA:unidLA|            ; 4 (4)             ; 0 (0)        ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |Main|ULA:unidLA       ; work         ;
-;    |memory:mem|            ; 8 (8)             ; 0 (0)        ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |Main|memory:mem       ; work         ;
+;    |memory:mem|            ; 8 (8)             ; 0 (0)        ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |Main|memory:mem       ;              ;
 ;    |registrador:REGX|      ; 3 (3)             ; 3 (3)        ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |Main|registrador:REGX ;              ;
 ;    |registrador:REGY|      ; 5 (5)             ; 4 (4)        ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |Main|registrador:REGY ; work         ;
-;    |registrador:REGZ|      ; 5 (5)             ; 4 (4)        ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |Main|registrador:REGZ ; work         ;
+;    |registrador:REGZ|      ; 5 (5)             ; 4 (4)        ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |Main|registrador:REGZ ;              ;
 +----------------------------+-------------------+--------------+-------------------+--------------+---------+-----------+-----------+------+--------------+------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+----------------------------------------------------------------------------------------------------+
-; User-Specified and Inferred Latches                                                                ;
-+-----------------------------------------------------+---------------------+------------------------+
-; Latch Name                                          ; Latch Enable Signal ; Free of Timing Hazards ;
-+-----------------------------------------------------+---------------------+------------------------+
-; Control:UC|Tz[0]                                    ; Control:UC|Mux6     ; yes                    ;
-; Control:UC|Tz[1]                                    ; Control:UC|Mux6     ; yes                    ;
-; Control:UC|Ty[0]                                    ; Control:UC|Mux6     ; yes                    ;
-; Control:UC|Ty[1]                                    ; Control:UC|Mux6     ; yes                    ;
-; memory:mem|funcao[0]                                ; memory:mem|Mux5     ; yes                    ;
-; memory:mem|funcao[1]                                ; memory:mem|Mux5     ; yes                    ;
-; memory:mem|funcao[2]                                ; memory:mem|Mux5     ; yes                    ;
-; Control:UC|Tx[0]                                    ; Control:UC|Mux6     ; yes                    ;
-; Control:UC|Tx[1]                                    ; Control:UC|Mux6     ; yes                    ;
-; memory:mem|valor[1]                                 ; memory:mem|Mux5     ; yes                    ;
-; memory:mem|valor[2]                                 ; memory:mem|Mux5     ; yes                    ;
-; Number of user-specified and inferred latches = 11  ;                     ;                        ;
-+-----------------------------------------------------+---------------------+------------------------+
++---------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                               ;
++----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal ; Free of Timing Hazards ;
++----------------------------------------------------+---------------------+------------------------+
+; memory:mem|funcao[2]                               ; memory:mem|Mux5     ; yes                    ;
+; memory:mem|funcao[0]                               ; memory:mem|Mux5     ; yes                    ;
+; memory:mem|funcao[1]                               ; memory:mem|Mux5     ; yes                    ;
+; memory:mem|valor[1]                                ; memory:mem|Mux5     ; yes                    ;
+; memory:mem|valor[2]                                ; memory:mem|Mux5     ; yes                    ;
+; Number of user-specified and inferred latches = 5  ;                     ;                        ;
++----------------------------------------------------+---------------------+------------------------+
 Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
@@ -257,8 +251,9 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +---------------------------------------+----------------------------------------+
 ; Register name                         ; Reason for Removal                     ;
 +---------------------------------------+----------------------------------------+
+; Control:UC|Tula                       ; Stuck at GND due to stuck port data_in ;
 ; registrador:REGX|out[3]               ; Stuck at GND due to stuck port data_in ;
-; Total Number of Removed Registers = 1 ;                                        ;
+; Total Number of Removed Registers = 2 ;                                        ;
 +---------------------------------------+----------------------------------------+
 
 
@@ -267,12 +262,12 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 15    ;
+; Total registers                              ; 21    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 6     ;
+; Number of registers using Clock Enable       ; 12    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -284,7 +279,42 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------+
 ; 4:1                ; 3 bits    ; 6 ALUTs       ; 6 ALUTs              ; 0 ALUTs                ; Yes        ; |Main|registrador:REGZ|out[0] ;
 ; 4:1                ; 3 bits    ; 6 ALUTs       ; 6 ALUTs              ; 0 ALUTs                ; Yes        ; |Main|registrador:REGY|out[0] ;
+; 8:1                ; 6 bits    ; 30 ALUTs      ; 18 ALUTs             ; 12 ALUTs               ; Yes        ; |Main|Control:UC|Tz[1]        ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------+
+
+
++---------------------------------------------------------+
+; Parameter Settings for User Entity Instance: memory:mem ;
++----------------+-------+--------------------------------+
+; Parameter Name ; Value ; Type                           ;
++----------------+-------+--------------------------------+
+; A              ; 0100  ; Unsigned Binary                ;
+; B              ; 0010  ; Unsigned Binary                ;
+; clrld          ; 000   ; Unsigned Binary                ;
+; addld          ; 001   ; Unsigned Binary                ;
+; add            ; 010   ; Unsigned Binary                ;
+; div2           ; 011   ; Unsigned Binary                ;
+; disp           ; 100   ; Unsigned Binary                ;
++----------------+-------+--------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Control:UC ;
++----------------+-------+--------------------------------+
+; Parameter Name ; Value ; Type                           ;
++----------------+-------+--------------------------------+
+; clrld          ; 000   ; Unsigned Binary                ;
+; addld          ; 001   ; Unsigned Binary                ;
+; add            ; 010   ; Unsigned Binary                ;
+; div2           ; 011   ; Unsigned Binary                ;
+; disp           ; 100   ; Unsigned Binary                ;
+; hold           ; 00    ; Unsigned Binary                ;
+; load           ; 01    ; Unsigned Binary                ;
+; shiftr         ; 10    ; Unsigned Binary                ;
+; reset          ; 11    ; Unsigned Binary                ;
++----------------+-------+--------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
 +---------------------------------------------------------------+
@@ -337,34 +367,13 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+---------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Control:UC ;
-+----------------+-------+--------------------------------+
-; Parameter Name ; Value ; Type                           ;
-+----------------+-------+--------------------------------+
-; clrld          ; 000   ; Unsigned Binary                ;
-; addld          ; 001   ; Unsigned Binary                ;
-; add            ; 010   ; Unsigned Binary                ;
-; div2           ; 011   ; Unsigned Binary                ;
-; disp           ; 100   ; Unsigned Binary                ;
-+----------------+-------+--------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+---------------------------------------------------------+
-; Parameter Settings for User Entity Instance: memory:mem ;
-+----------------+-------+--------------------------------+
-; Parameter Name ; Value ; Type                           ;
-+----------------+-------+--------------------------------+
-; A              ; 0100  ; Unsigned Binary                ;
-; B              ; 0010  ; Unsigned Binary                ;
-; clrld          ; 000   ; Unsigned Binary                ;
-; addld          ; 001   ; Unsigned Binary                ;
-; add            ; 010   ; Unsigned Binary                ;
-; div2           ; 011   ; Unsigned Binary                ;
-; disp           ; 100   ; Unsigned Binary                ;
-+----------------+-------+--------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Control:UC"                                                                                                                                                                          ;
++-----------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port      ; Type  ; Severity ; Details                                                                                                                                                                          ;
++-----------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Instrucao ; Input ; Warning  ; Input port expression (4 bits) is wider than the input port (3 bits) it drives.  The 1 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++-----------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -376,22 +385,13 @@ Note: In order to hide this table in the UI and the text report file, please set
 +--------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "Control:UC"                                                                                                                                                                          ;
-+-----------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port      ; Type  ; Severity ; Details                                                                                                                                                                          ;
-+-----------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Instrucao ; Input ; Warning  ; Input port expression (4 bits) is wider than the input port (3 bits) it drives.  The 1 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
-+-----------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-
-
 +-------------------------------+
 ; Analysis & Synthesis Messages ;
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus II Analysis & Synthesis
     Info: Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
-    Info: Processing started: Tue Dec 13 10:01:48 2016
+    Info: Processing started: Tue Dec 13 15:37:17 2016
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off memory -c memory
 Info: Found 1 design units, including 1 entities, in source file control.v
     Info: Found entity 1: Control
@@ -406,75 +406,45 @@ Info: Found 1 design units, including 1 entities, in source file main.v
 Info: Found 1 design units, including 1 entities, in source file pc.v
     Info: Found entity 1: PC
 Info: Elaborating entity "Main" for the top level hierarchy
+Info: Elaborating entity "PC" for hierarchy "PC:contador"
+Warning (10230): Verilog HDL assignment warning at PC.v(7): truncated value with size 32 to match size of target (4)
+Info: Elaborating entity "memory" for hierarchy "memory:mem"
+Warning (10270): Verilog HDL Case Statement warning at memory.v(17): incomplete case statement has no default case item
+Warning (10240): Verilog HDL Always Construct warning at memory.v(16): inferring latch(es) for variable "funcao", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at memory.v(16): inferring latch(es) for variable "valor", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "valor[0]" at memory.v(16)
+Info (10041): Inferred latch for "valor[1]" at memory.v(16)
+Info (10041): Inferred latch for "valor[2]" at memory.v(16)
+Info (10041): Inferred latch for "valor[3]" at memory.v(16)
+Info (10041): Inferred latch for "funcao[0]" at memory.v(16)
+Info (10041): Inferred latch for "funcao[1]" at memory.v(16)
+Info (10041): Inferred latch for "funcao[2]" at memory.v(16)
+Info: Elaborating entity "Control" for hierarchy "Control:UC"
 Info: Elaborating entity "registrador" for hierarchy "registrador:REGX"
 Info: Elaborating entity "ULA" for hierarchy "ULA:unidLA"
-Info: Elaborating entity "Control" for hierarchy "Control:UC"
-Warning (10270): Verilog HDL Case Statement warning at Control.v(13): incomplete case statement has no default case item
-Warning (10240): Verilog HDL Always Construct warning at Control.v(13): inferring latch(es) for variable "Tx", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at Control.v(13): inferring latch(es) for variable "Ty", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at Control.v(13): inferring latch(es) for variable "Tz", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at Control.v(13): inferring latch(es) for variable "Tula", which holds its previous value in one or more paths through the always construct
-Info (10041): Inferred latch for "Tula" at Control.v(13)
-Info (10041): Inferred latch for "Tz[0]" at Control.v(13)
-Info (10041): Inferred latch for "Tz[1]" at Control.v(13)
-Info (10041): Inferred latch for "Ty[0]" at Control.v(13)
-Info (10041): Inferred latch for "Ty[1]" at Control.v(13)
-Info (10041): Inferred latch for "Tx[0]" at Control.v(13)
-Info (10041): Inferred latch for "Tx[1]" at Control.v(13)
-Info: Elaborating entity "PC" for hierarchy "PC:contador"
-Warning (10230): Verilog HDL assignment warning at PC.v(8): truncated value with size 32 to match size of target (4)
-Info: Elaborating entity "memory" for hierarchy "memory:mem"
-Warning (10270): Verilog HDL Case Statement warning at memory.v(15): incomplete case statement has no default case item
-Warning (10240): Verilog HDL Always Construct warning at memory.v(14): inferring latch(es) for variable "funcao", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at memory.v(14): inferring latch(es) for variable "valor", which holds its previous value in one or more paths through the always construct
-Info (10041): Inferred latch for "valor[0]" at memory.v(14)
-Info (10041): Inferred latch for "valor[1]" at memory.v(14)
-Info (10041): Inferred latch for "valor[2]" at memory.v(14)
-Info (10041): Inferred latch for "valor[3]" at memory.v(14)
-Info (10041): Inferred latch for "funcao[0]" at memory.v(14)
-Info (10041): Inferred latch for "funcao[1]" at memory.v(14)
-Info (10041): Inferred latch for "funcao[2]" at memory.v(14)
-Warning: Net is missing source, defaulting to GND
-    Warning (12110): Net "FUNCAO[3]" is missing source, defaulting to GND
-Warning: Net is missing source, defaulting to GND
-    Warning (12110): Net "FUNCAO[3]" is missing source, defaulting to GND
-Warning: Net is missing source, defaulting to GND
-    Warning (12110): Net "FUNCAO[3]" is missing source, defaulting to GND
 Warning: Net is missing source, defaulting to GND
     Warning (12110): Net "FUNCAO[3]" is missing source, defaulting to GND
 Warning: Net is missing source, defaulting to GND
     Warning (12110): Net "FUNCAO[3]" is missing source, defaulting to GND
 Warning: 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
-Warning: Latch Control:UC|Tz[0] has unsafe behavior
-    Warning: Ports D and ENA on the latch are fed by the same signal memory:mem|funcao[0]
-Warning: Latch Control:UC|Tz[1] has unsafe behavior
-    Warning: Ports D and ENA on the latch are fed by the same signal memory:mem|funcao[0]
-Warning: Latch Control:UC|Ty[0] has unsafe behavior
-    Warning: Ports D and ENA on the latch are fed by the same signal memory:mem|funcao[0]
-Warning: Latch Control:UC|Ty[1] has unsafe behavior
-    Warning: Ports D and ENA on the latch are fed by the same signal memory:mem|funcao[0]
+Warning: Latch memory:mem|funcao[2] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal PC:contador|out[2]
 Warning: Latch memory:mem|funcao[0] has unsafe behavior
     Warning: Ports D and ENA on the latch are fed by the same signal PC:contador|out[0]
 Warning: Latch memory:mem|funcao[1] has unsafe behavior
     Warning: Ports D and ENA on the latch are fed by the same signal PC:contador|out[1]
-Warning: Latch memory:mem|funcao[2] has unsafe behavior
-    Warning: Ports D and ENA on the latch are fed by the same signal PC:contador|out[2]
-Warning: Latch Control:UC|Tx[0] has unsafe behavior
-    Warning: Ports D and ENA on the latch are fed by the same signal memory:mem|funcao[1]
-Warning: Latch Control:UC|Tx[1] has unsafe behavior
-    Warning: Ports D and ENA on the latch are fed by the same signal memory:mem|funcao[2]
 Warning: Latch memory:mem|valor[1] has unsafe behavior
-    Warning: Ports D and ENA on the latch are fed by the same signal PC:contador|out[1]
+    Warning: Ports D and ENA on the latch are fed by the same signal PC:contador|out[0]
 Warning: Latch memory:mem|valor[2] has unsafe behavior
-    Warning: Ports D and ENA on the latch are fed by the same signal PC:contador|out[2]
-Info: Implemented 45 device resources after synthesis - the final resource count might be different
+    Warning: Ports D and ENA on the latch are fed by the same signal PC:contador|out[0]
+Info: Implemented 41 device resources after synthesis - the final resource count might be different
     Info: Implemented 1 input pins
     Info: Implemented 4 output pins
-    Info: Implemented 40 logic cells
-Info: Quartus II Analysis & Synthesis was successful. 0 errors, 42 warnings
+    Info: Implemented 36 logic cells
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 19 warnings
     Info: Peak virtual memory: 249 megabytes
-    Info: Processing ended: Tue Dec 13 10:01:49 2016
-    Info: Elapsed time: 00:00:01
+    Info: Processing ended: Tue Dec 13 15:37:21 2016
+    Info: Elapsed time: 00:00:04
     Info: Total CPU time (on all processors): 00:00:01
 
 

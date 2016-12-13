@@ -1,0 +1,337 @@
+Quartus II
+Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
+7
+3700
+OFF
+OFF
+OFF
+ON
+ON
+ON
+FV_OFF
+Level2
+0
+0
+VRSM_ON
+VHSM_ON
+0
+-- Start Library Paths --
+-- End Library Paths --
+-- Start VHDL Libraries --
+-- End VHDL Libraries --
+# entity
+Main
+# storage
+db|memory.(0).cnf
+db|memory.(0).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+main.v
+3dd35fa9f28f168cefa9d8b4df1f8410
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+|
+}
+# macro_sequence
+
+# end
+# entity
+PC
+# storage
+db|memory.(1).cnf
+db|memory.(1).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+pc.v
+4d6b2639bf97f452da5abfa9ca8ea92
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+PC:contador
+}
+# macro_sequence
+
+# end
+# entity
+memory
+# storage
+db|memory.(2).cnf
+db|memory.(2).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+memory.v
+d25839c626e72ac740846e5a3c614c
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# user_parameter {
+A
+0100
+PARAMETER_UNSIGNED_BIN
+DEF
+B
+0010
+PARAMETER_UNSIGNED_BIN
+DEF
+clrld
+000
+PARAMETER_UNSIGNED_BIN
+DEF
+addld
+001
+PARAMETER_UNSIGNED_BIN
+DEF
+add
+010
+PARAMETER_UNSIGNED_BIN
+DEF
+div2
+011
+PARAMETER_UNSIGNED_BIN
+DEF
+disp
+100
+PARAMETER_UNSIGNED_BIN
+DEF
+}
+# hierarchies {
+memory:mem
+}
+# macro_sequence
+
+# end
+# entity
+Control
+# storage
+db|memory.(3).cnf
+db|memory.(3).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+control.v
+c86fcee75e2d79f02790d869cbfd392
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# user_parameter {
+clrld
+000
+PARAMETER_UNSIGNED_BIN
+DEF
+addld
+001
+PARAMETER_UNSIGNED_BIN
+DEF
+add
+010
+PARAMETER_UNSIGNED_BIN
+DEF
+div2
+011
+PARAMETER_UNSIGNED_BIN
+DEF
+disp
+100
+PARAMETER_UNSIGNED_BIN
+DEF
+hold
+00
+PARAMETER_UNSIGNED_BIN
+DEF
+load
+01
+PARAMETER_UNSIGNED_BIN
+DEF
+shiftr
+10
+PARAMETER_UNSIGNED_BIN
+DEF
+reset
+11
+PARAMETER_UNSIGNED_BIN
+DEF
+}
+# hierarchies {
+Control:UC
+}
+# macro_sequence
+
+# end
+# entity
+registrador
+# storage
+db|memory.(4).cnf
+db|memory.(4).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+registrador.v
+a892b7e3fb8d4b8140903e7b3812f5a0
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# user_parameter {
+HOLD
+00
+PARAMETER_UNSIGNED_BIN
+DEF
+LOAD
+01
+PARAMETER_UNSIGNED_BIN
+DEF
+SHIFTR
+10
+PARAMETER_UNSIGNED_BIN
+DEF
+RESET
+11
+PARAMETER_UNSIGNED_BIN
+DEF
+}
+# hierarchies {
+registrador:REGX
+registrador:REGY
+registrador:REGZ
+}
+# macro_sequence
+
+# end
+# entity
+ULA
+# storage
+db|memory.(5).cnf
+db|memory.(5).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+ula.v
+bdb52b4e29e36428775ef96f784ac89
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# user_parameter {
+ADD
+0
+PARAMETER_UNSIGNED_BIN
+DEF
+SUB
+1
+PARAMETER_UNSIGNED_BIN
+DEF
+}
+# hierarchies {
+ULA:unidLA
+}
+# macro_sequence
+
+# end
+# complete
+
