@@ -1,9 +1,11 @@
 module memory(input wire [3:0] seletor, output reg [2:0] funcao, output reg [3:0] valor);
 	
+	//Constantes utilizadas no programa
 	parameter
 	A = 4'b0100,
 	B = 4'b0010;
 	
+	//Código das instruções do programa
 	parameter clrld = 3'b000; 
 	parameter addld = 3'b001; 
 	parameter add = 3'b010; 
