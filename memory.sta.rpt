@@ -1,0 +1,639 @@
+TimeQuest Timing Analyzer report for memory
+Tue Dec 13 22:05:24 2016
+Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. TimeQuest Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Fmax Summary
+  6. Setup Summary
+  7. Hold Summary
+  8. Recovery Summary
+  9. Removal Summary
+ 10. Minimum Pulse Width Summary
+ 11. Setup: 'clk'
+ 12. Setup: 'PC:contador|out[0]'
+ 13. Hold: 'PC:contador|out[0]'
+ 14. Hold: 'clk'
+ 15. Minimum Pulse Width: 'clk'
+ 16. Minimum Pulse Width: 'PC:contador|out[0]'
+ 17. Clock to Output Times
+ 18. Minimum Clock to Output Times
+ 19. Setup Transfers
+ 20. Hold Transfers
+ 21. Report TCCS
+ 22. Report RSKM
+ 23. Unconstrained Paths
+ 24. TimeQuest Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                       ;
++--------------------+----------------------------------------------------+
+; Quartus II Version ; Version 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
+; Revision Name      ; memory                                             ;
+; Device Family      ; MAX V                                              ;
+; Device Name        ; 5M40ZM64C4                                         ;
+; Timing Models      ; Final                                              ;
+; Delay Model        ; Slow Model                                         ;
+; Rise/Fall Delays   ; Unavailable                                        ;
++--------------------+----------------------------------------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 8      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                                                 ;
++--------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+------------------------+
+; Clock Name         ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets                ;
++--------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+------------------------+
+; clk                ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clk }                ;
+; PC:contador|out[0] ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { PC:contador|out[0] } ;
++--------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+------------------------+
+
+
++----------------------------------------------------------------------------+
+; Fmax Summary                                                               ;
++-----------+-----------------+--------------------+-------------------------+
+; Fmax      ; Restricted Fmax ; Clock Name         ; Note                    ;
++-----------+-----------------+--------------------+-------------------------+
+; INF MHz   ; 103.37 MHz      ; PC:contador|out[0] ; limit due to hold check ;
+; 90.56 MHz ; 90.56 MHz       ; clk                ;                         ;
++-----------+-----------------+--------------------+-------------------------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++---------------------------------------------+
+; Setup Summary                               ;
++--------------------+--------+---------------+
+; Clock              ; Slack  ; End Point TNS ;
++--------------------+--------+---------------+
+; clk                ; -8.348 ; -109.322      ;
+; PC:contador|out[0] ; -1.261 ; -3.544        ;
++--------------------+--------+---------------+
+
+
++---------------------------------------------+
+; Hold Summary                                ;
++--------------------+--------+---------------+
+; Clock              ; Slack  ; End Point TNS ;
++--------------------+--------+---------------+
+; PC:contador|out[0] ; -4.837 ; -14.495       ;
+; clk                ; -0.732 ; -2.869        ;
++--------------------+--------+---------------+
+
+
+--------------------
+; Recovery Summary ;
+--------------------
+No paths to report.
+
+
+-------------------
+; Removal Summary ;
+-------------------
+No paths to report.
+
+
++---------------------------------------------+
+; Minimum Pulse Width Summary                 ;
++--------------------+--------+---------------+
+; Clock              ; Slack  ; End Point TNS ;
++--------------------+--------+---------------+
+; clk                ; -2.289 ; -2.289        ;
+; PC:contador|out[0] ; 0.500  ; 0.000         ;
++--------------------+--------+---------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'clk'                                                                                                                           ;
++--------+-------------------------+-------------------------+--------------------+-------------+--------------+------------+------------+
+; Slack  ; From Node               ; To Node                 ; Launch Clock       ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------------+-------------------------+--------------------+-------------+--------------+------------+------------+
+; -8.348 ; memory:mem|funcao[0]    ; Control:UC|Tz[0]        ; PC:contador|out[0] ; clk         ; 1.000        ; -4.333     ; 4.755      ;
+; -8.348 ; memory:mem|funcao[0]    ; Control:UC|Tz[1]        ; PC:contador|out[0] ; clk         ; 1.000        ; -4.333     ; 4.755      ;
+; -8.348 ; memory:mem|funcao[0]    ; Control:UC|Tx[1]        ; PC:contador|out[0] ; clk         ; 1.000        ; -4.333     ; 4.755      ;
+; -7.988 ; memory:mem|funcao[1]    ; Control:UC|Tz[0]        ; PC:contador|out[0] ; clk         ; 1.000        ; -4.336     ; 4.392      ;
+; -7.988 ; memory:mem|funcao[1]    ; Control:UC|Tz[1]        ; PC:contador|out[0] ; clk         ; 1.000        ; -4.336     ; 4.392      ;
+; -7.988 ; memory:mem|funcao[1]    ; Control:UC|Tx[1]        ; PC:contador|out[0] ; clk         ; 1.000        ; -4.336     ; 4.392      ;
+; -7.934 ; memory:mem|funcao[0]    ; Control:UC|Ty[0]        ; PC:contador|out[0] ; clk         ; 1.000        ; -4.333     ; 4.341      ;
+; -7.934 ; memory:mem|funcao[0]    ; Control:UC|Ty[1]        ; PC:contador|out[0] ; clk         ; 1.000        ; -4.333     ; 4.341      ;
+; -7.934 ; memory:mem|funcao[0]    ; Control:UC|Tx[0]        ; PC:contador|out[0] ; clk         ; 1.000        ; -4.333     ; 4.341      ;
+; -7.574 ; memory:mem|funcao[1]    ; Control:UC|Ty[0]        ; PC:contador|out[0] ; clk         ; 1.000        ; -4.336     ; 3.978      ;
+; -7.574 ; memory:mem|funcao[1]    ; Control:UC|Ty[1]        ; PC:contador|out[0] ; clk         ; 1.000        ; -4.336     ; 3.978      ;
+; -7.574 ; memory:mem|funcao[1]    ; Control:UC|Tx[0]        ; PC:contador|out[0] ; clk         ; 1.000        ; -4.336     ; 3.978      ;
+; -6.935 ; memory:mem|funcao[2]    ; Control:UC|Tz[0]        ; PC:contador|out[0] ; clk         ; 1.000        ; -4.338     ; 3.337      ;
+; -6.935 ; memory:mem|funcao[2]    ; Control:UC|Tz[1]        ; PC:contador|out[0] ; clk         ; 1.000        ; -4.338     ; 3.337      ;
+; -6.935 ; memory:mem|funcao[2]    ; Control:UC|Tx[1]        ; PC:contador|out[0] ; clk         ; 1.000        ; -4.338     ; 3.337      ;
+; -6.521 ; memory:mem|funcao[2]    ; Control:UC|Ty[0]        ; PC:contador|out[0] ; clk         ; 1.000        ; -4.338     ; 2.923      ;
+; -6.521 ; memory:mem|funcao[2]    ; Control:UC|Ty[1]        ; PC:contador|out[0] ; clk         ; 1.000        ; -4.338     ; 2.923      ;
+; -6.521 ; memory:mem|funcao[2]    ; Control:UC|Tx[0]        ; PC:contador|out[0] ; clk         ; 1.000        ; -4.338     ; 2.923      ;
+; -5.452 ; registrador:REGX|out[2] ; registrador:REGY|out[3] ; clk                ; clk         ; 1.000        ; 0.000      ; 6.192      ;
+; -5.397 ; registrador:REGX|out[0] ; registrador:REGY|out[3] ; clk                ; clk         ; 1.000        ; 0.000      ; 6.137      ;
+; -5.357 ; registrador:REGX|out[1] ; registrador:REGY|out[3] ; clk                ; clk         ; 1.000        ; 0.000      ; 6.097      ;
+; -5.284 ; registrador:REGX|out[0] ; registrador:REGY|out[2] ; clk                ; clk         ; 1.000        ; 0.000      ; 6.024      ;
+; -5.244 ; registrador:REGX|out[1] ; registrador:REGY|out[2] ; clk                ; clk         ; 1.000        ; 0.000      ; 5.984      ;
+; -5.161 ; registrador:REGX|out[0] ; registrador:REGY|out[1] ; clk                ; clk         ; 1.000        ; 0.000      ; 5.901      ;
+; -5.021 ; Control:UC|Ty[0]        ; registrador:REGY|out[2] ; clk                ; clk         ; 0.500        ; 0.000      ; 5.261      ;
+; -5.021 ; Control:UC|Ty[0]        ; registrador:REGY|out[1] ; clk                ; clk         ; 0.500        ; 0.000      ; 5.261      ;
+; -5.021 ; Control:UC|Ty[0]        ; registrador:REGY|out[0] ; clk                ; clk         ; 0.500        ; 0.000      ; 5.261      ;
+; -4.967 ; memory:mem|valor[2]     ; registrador:REGX|out[2] ; PC:contador|out[0] ; clk         ; 0.500        ; -4.321     ; 0.886      ;
+; -4.963 ; memory:mem|valor[1]     ; registrador:REGX|out[1] ; PC:contador|out[0] ; clk         ; 0.500        ; -4.317     ; 0.886      ;
+; -4.823 ; Control:UC|Tz[1]        ; registrador:REGZ|out[0] ; clk                ; clk         ; 0.500        ; 0.000      ; 5.063      ;
+; -4.820 ; Control:UC|Tz[1]        ; registrador:REGZ|out[2] ; clk                ; clk         ; 0.500        ; 0.000      ; 5.060      ;
+; -4.804 ; Control:UC|Ty[1]        ; registrador:REGY|out[2] ; clk                ; clk         ; 0.500        ; 0.000      ; 5.044      ;
+; -4.803 ; Control:UC|Ty[1]        ; registrador:REGY|out[3] ; clk                ; clk         ; 0.500        ; 0.000      ; 5.043      ;
+; -4.731 ; Control:UC|Tz[1]        ; registrador:REGZ|out[1] ; clk                ; clk         ; 0.500        ; 0.000      ; 4.971      ;
+; -4.611 ; registrador:REGY|out[0] ; registrador:REGY|out[3] ; clk                ; clk         ; 1.000        ; 0.000      ; 5.351      ;
+; -4.609 ; registrador:REGX|out[0] ; registrador:REGY|out[0] ; clk                ; clk         ; 1.000        ; 0.000      ; 5.349      ;
+; -4.567 ; registrador:REGX|out[2] ; registrador:REGY|out[2] ; clk                ; clk         ; 1.000        ; 0.000      ; 5.307      ;
+; -4.535 ; registrador:REGY|out[2] ; registrador:REGY|out[3] ; clk                ; clk         ; 1.000        ; 0.000      ; 5.275      ;
+; -4.498 ; registrador:REGY|out[0] ; registrador:REGY|out[2] ; clk                ; clk         ; 1.000        ; 0.000      ; 5.238      ;
+; -4.495 ; registrador:REGY|out[1] ; registrador:REGY|out[3] ; clk                ; clk         ; 1.000        ; 0.000      ; 5.235      ;
+; -4.435 ; registrador:REGX|out[1] ; registrador:REGX|out[1] ; clk                ; clk         ; 1.000        ; 0.000      ; 5.175      ;
+; -4.429 ; registrador:REGX|out[1] ; registrador:REGY|out[1] ; clk                ; clk         ; 1.000        ; 0.000      ; 5.169      ;
+; -4.428 ; registrador:REGX|out[2] ; registrador:REGX|out[1] ; clk                ; clk         ; 1.000        ; 0.000      ; 5.168      ;
+; -4.382 ; registrador:REGY|out[1] ; registrador:REGY|out[2] ; clk                ; clk         ; 1.000        ; 0.000      ; 5.122      ;
+; -4.375 ; registrador:REGY|out[0] ; registrador:REGY|out[1] ; clk                ; clk         ; 1.000        ; 0.000      ; 5.115      ;
+; -4.349 ; Control:UC|Ty[1]        ; registrador:REGY|out[1] ; clk                ; clk         ; 0.500        ; 0.000      ; 4.589      ;
+; -4.349 ; Control:UC|Ty[1]        ; registrador:REGY|out[0] ; clk                ; clk         ; 0.500        ; 0.000      ; 4.589      ;
+; -4.329 ; Control:UC|Tz[0]        ; registrador:REGZ|out[2] ; clk                ; clk         ; 0.500        ; 0.000      ; 4.569      ;
+; -4.329 ; Control:UC|Tz[0]        ; registrador:REGZ|out[1] ; clk                ; clk         ; 0.500        ; 0.000      ; 4.569      ;
+; -4.329 ; Control:UC|Tz[0]        ; registrador:REGZ|out[0] ; clk                ; clk         ; 0.500        ; 0.000      ; 4.569      ;
+; -4.269 ; Control:UC|Tx[0]        ; registrador:REGX|out[1] ; clk                ; clk         ; 0.500        ; 0.000      ; 4.509      ;
+; -4.099 ; Control:UC|Tx[1]        ; registrador:REGX|out[2] ; clk                ; clk         ; 0.500        ; 0.000      ; 4.339      ;
+; -4.096 ; Control:UC|Tx[1]        ; registrador:REGX|out[1] ; clk                ; clk         ; 0.500        ; 0.000      ; 4.336      ;
+; -4.035 ; registrador:REGY|out[0] ; registrador:REGZ|out[0] ; clk                ; clk         ; 1.000        ; 0.000      ; 4.775      ;
+; -3.808 ; Control:UC|Tz[1]        ; registrador:REGZ|out[3] ; clk                ; clk         ; 0.500        ; 0.000      ; 4.048      ;
+; -3.770 ; registrador:REGZ|out[3] ; registrador:REGZ|out[3] ; clk                ; clk         ; 1.000        ; 0.000      ; 4.510      ;
+; -3.743 ; registrador:REGY|out[0] ; registrador:REGY|out[0] ; clk                ; clk         ; 1.000        ; 0.000      ; 4.483      ;
+; -3.730 ; registrador:REGY|out[2] ; registrador:REGY|out[2] ; clk                ; clk         ; 1.000        ; 0.000      ; 4.470      ;
+; -3.591 ; Control:UC|Tx[0]        ; registrador:REGX|out[2] ; clk                ; clk         ; 0.500        ; 0.000      ; 3.831      ;
+; -3.487 ; registrador:REGY|out[1] ; registrador:REGY|out[1] ; clk                ; clk         ; 1.000        ; 0.000      ; 4.227      ;
+; -3.459 ; Control:UC|Ty[0]        ; registrador:REGY|out[3] ; clk                ; clk         ; 0.500        ; 0.000      ; 3.699      ;
+; -3.328 ; registrador:REGY|out[3] ; registrador:REGZ|out[3] ; clk                ; clk         ; 1.000        ; 0.000      ; 4.068      ;
+; -3.301 ; registrador:REGY|out[3] ; registrador:REGY|out[3] ; clk                ; clk         ; 1.000        ; 0.000      ; 4.041      ;
+; -3.249 ; registrador:REGZ|out[3] ; registrador:REGZ|out[2] ; clk                ; clk         ; 1.000        ; 0.000      ; 3.989      ;
+; -3.213 ; Control:UC|Tz[0]        ; registrador:REGZ|out[3] ; clk                ; clk         ; 0.500        ; 0.000      ; 3.453      ;
+; -3.016 ; registrador:REGY|out[2] ; registrador:REGZ|out[2] ; clk                ; clk         ; 1.000        ; 0.000      ; 3.756      ;
+; -2.681 ; registrador:REGX|out[1] ; registrador:REGX|out[0] ; clk                ; clk         ; 1.000        ; 0.000      ; 3.421      ;
+; -2.650 ; Control:UC|Tx[1]        ; registrador:REGX|out[0] ; clk                ; clk         ; 0.500        ; 0.000      ; 2.890      ;
+; -2.583 ; registrador:REGY|out[1] ; registrador:REGZ|out[1] ; clk                ; clk         ; 1.000        ; 0.000      ; 3.323      ;
+; -2.367 ; PC:contador|out[1]      ; PC:contador|out[0]      ; clk                ; clk         ; 1.000        ; 0.000      ; 3.107      ;
+; -2.367 ; PC:contador|out[1]      ; PC:contador|out[3]      ; clk                ; clk         ; 1.000        ; 0.000      ; 3.107      ;
+; -2.357 ; PC:contador|out[1]      ; PC:contador|out[2]      ; clk                ; clk         ; 1.000        ; 0.000      ; 3.097      ;
+; -2.315 ; registrador:REGX|out[2] ; registrador:REGX|out[2] ; clk                ; clk         ; 1.000        ; 0.000      ; 3.055      ;
+; -2.313 ; Control:UC|Tx[0]        ; registrador:REGX|out[0] ; clk                ; clk         ; 0.500        ; 0.000      ; 2.553      ;
+; -2.292 ; registrador:REGY|out[1] ; registrador:REGY|out[0] ; clk                ; clk         ; 1.000        ; 0.000      ; 3.032      ;
+; -2.288 ; registrador:REGZ|out[2] ; registrador:REGZ|out[1] ; clk                ; clk         ; 1.000        ; 0.000      ; 3.028      ;
+; -2.274 ; registrador:REGY|out[2] ; registrador:REGY|out[1] ; clk                ; clk         ; 1.000        ; 0.000      ; 3.014      ;
+; -2.186 ; registrador:REGY|out[3] ; registrador:REGY|out[2] ; clk                ; clk         ; 1.000        ; 0.000      ; 2.926      ;
+; -2.092 ; registrador:REGZ|out[1] ; registrador:REGZ|out[0] ; clk                ; clk         ; 1.000        ; 0.000      ; 2.832      ;
+; -2.024 ; registrador:REGX|out[0] ; registrador:REGX|out[0] ; clk                ; clk         ; 1.000        ; 0.000      ; 2.764      ;
+; -1.904 ; PC:contador|out[2]      ; PC:contador|out[0]      ; clk                ; clk         ; 1.000        ; 0.000      ; 2.644      ;
+; -1.904 ; PC:contador|out[2]      ; PC:contador|out[3]      ; clk                ; clk         ; 1.000        ; 0.000      ; 2.644      ;
+; -1.891 ; PC:contador|out[2]      ; PC:contador|out[2]      ; clk                ; clk         ; 1.000        ; 0.000      ; 2.631      ;
+; -1.674 ; PC:contador|out[1]      ; PC:contador|out[1]      ; clk                ; clk         ; 1.000        ; 0.000      ; 2.414      ;
+; -1.627 ; PC:contador|out[3]      ; PC:contador|out[2]      ; clk                ; clk         ; 1.000        ; 0.000      ; 2.367      ;
+; -1.621 ; PC:contador|out[3]      ; PC:contador|out[0]      ; clk                ; clk         ; 1.000        ; 0.000      ; 2.361      ;
+; -1.619 ; PC:contador|out[3]      ; PC:contador|out[3]      ; clk                ; clk         ; 1.000        ; 0.000      ; 2.359      ;
+; 0.845  ; PC:contador|out[0]      ; PC:contador|out[1]      ; PC:contador|out[0] ; clk         ; 0.500        ; 3.716      ; 3.491      ;
+; 0.892  ; PC:contador|out[0]      ; PC:contador|out[2]      ; PC:contador|out[0] ; clk         ; 0.500        ; 3.716      ; 3.444      ;
+; 0.898  ; PC:contador|out[0]      ; PC:contador|out[0]      ; PC:contador|out[0] ; clk         ; 0.500        ; 3.716      ; 3.438      ;
+; 0.898  ; PC:contador|out[0]      ; PC:contador|out[3]      ; PC:contador|out[0] ; clk         ; 0.500        ; 3.716      ; 3.438      ;
+; 1.345  ; PC:contador|out[0]      ; PC:contador|out[1]      ; PC:contador|out[0] ; clk         ; 1.000        ; 3.716      ; 3.491      ;
+; 1.392  ; PC:contador|out[0]      ; PC:contador|out[2]      ; PC:contador|out[0] ; clk         ; 1.000        ; 3.716      ; 3.444      ;
+; 1.398  ; PC:contador|out[0]      ; PC:contador|out[0]      ; PC:contador|out[0] ; clk         ; 1.000        ; 3.716      ; 3.438      ;
+; 1.398  ; PC:contador|out[0]      ; PC:contador|out[3]      ; PC:contador|out[0] ; clk         ; 1.000        ; 3.716      ; 3.438      ;
++--------+-------------------------+-------------------------+--------------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'PC:contador|out[0]'                                                                                                           ;
++--------+--------------------+----------------------+--------------------+--------------------+--------------+------------+------------+
+; Slack  ; From Node          ; To Node              ; Launch Clock       ; Latch Clock        ; Relationship ; Clock Skew ; Data Delay ;
++--------+--------------------+----------------------+--------------------+--------------------+--------------+------------+------------+
+; -1.261 ; PC:contador|out[2] ; memory:mem|funcao[2] ; clk                ; PC:contador|out[0] ; 0.500        ; 4.338      ; 3.521      ;
+; -0.857 ; PC:contador|out[1] ; memory:mem|funcao[1] ; clk                ; PC:contador|out[0] ; 0.500        ; 4.336      ; 2.958      ;
+; -0.753 ; PC:contador|out[2] ; memory:mem|valor[2]  ; clk                ; PC:contador|out[0] ; 0.500        ; 4.321      ; 2.861      ;
+; -0.677 ; PC:contador|out[1] ; memory:mem|valor[2]  ; clk                ; PC:contador|out[0] ; 0.500        ; 4.321      ; 2.785      ;
+; -0.673 ; PC:contador|out[1] ; memory:mem|valor[1]  ; clk                ; PC:contador|out[0] ; 0.500        ; 4.317      ; 2.777      ;
+; 2.430  ; PC:contador|out[0] ; memory:mem|funcao[0] ; PC:contador|out[0] ; PC:contador|out[0] ; 0.500        ; 8.049      ; 4.671      ;
+; 2.492  ; PC:contador|out[0] ; memory:mem|valor[1]  ; PC:contador|out[0] ; PC:contador|out[0] ; 0.500        ; 8.033      ; 3.708      ;
+; 2.624  ; PC:contador|out[0] ; memory:mem|valor[2]  ; PC:contador|out[0] ; PC:contador|out[0] ; 0.500        ; 8.037      ; 3.580      ;
+; 2.930  ; PC:contador|out[0] ; memory:mem|funcao[0] ; PC:contador|out[0] ; PC:contador|out[0] ; 1.000        ; 8.049      ; 4.671      ;
+; 2.992  ; PC:contador|out[0] ; memory:mem|valor[1]  ; PC:contador|out[0] ; PC:contador|out[0] ; 1.000        ; 8.033      ; 3.708      ;
+; 3.124  ; PC:contador|out[0] ; memory:mem|valor[2]  ; PC:contador|out[0] ; PC:contador|out[0] ; 1.000        ; 8.037      ; 3.580      ;
++--------+--------------------+----------------------+--------------------+--------------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'PC:contador|out[0]'                                                                                                            ;
++--------+--------------------+----------------------+--------------------+--------------------+--------------+------------+------------+
+; Slack  ; From Node          ; To Node              ; Launch Clock       ; Latch Clock        ; Relationship ; Clock Skew ; Data Delay ;
++--------+--------------------+----------------------+--------------------+--------------------+--------------+------------+------------+
+; -4.837 ; PC:contador|out[0] ; memory:mem|valor[2]  ; PC:contador|out[0] ; PC:contador|out[0] ; 0.000        ; 8.037      ; 3.580      ;
+; -4.705 ; PC:contador|out[0] ; memory:mem|valor[1]  ; PC:contador|out[0] ; PC:contador|out[0] ; 0.000        ; 8.033      ; 3.708      ;
+; -4.337 ; PC:contador|out[0] ; memory:mem|valor[2]  ; PC:contador|out[0] ; PC:contador|out[0] ; -0.500       ; 8.037      ; 3.580      ;
+; -4.205 ; PC:contador|out[0] ; memory:mem|valor[1]  ; PC:contador|out[0] ; PC:contador|out[0] ; -0.500       ; 8.033      ; 3.708      ;
+; -3.758 ; PC:contador|out[0] ; memory:mem|funcao[0] ; PC:contador|out[0] ; PC:contador|out[0] ; 0.000        ; 8.049      ; 4.671      ;
+; -3.258 ; PC:contador|out[0] ; memory:mem|funcao[0] ; PC:contador|out[0] ; PC:contador|out[0] ; -0.500       ; 8.049      ; 4.671      ;
+; -1.040 ; PC:contador|out[1] ; memory:mem|valor[1]  ; clk                ; PC:contador|out[0] ; -0.500       ; 4.317      ; 2.777      ;
+; -1.036 ; PC:contador|out[1] ; memory:mem|valor[2]  ; clk                ; PC:contador|out[0] ; -0.500       ; 4.321      ; 2.785      ;
+; -0.960 ; PC:contador|out[2] ; memory:mem|valor[2]  ; clk                ; PC:contador|out[0] ; -0.500       ; 4.321      ; 2.861      ;
+; -0.878 ; PC:contador|out[1] ; memory:mem|funcao[1] ; clk                ; PC:contador|out[0] ; -0.500       ; 4.336      ; 2.958      ;
+; -0.317 ; PC:contador|out[2] ; memory:mem|funcao[2] ; clk                ; PC:contador|out[0] ; -0.500       ; 4.338      ; 3.521      ;
++--------+--------------------+----------------------+--------------------+--------------------+--------------+------------+------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'clk'                                                                                                                            ;
++--------+-------------------------+-------------------------+--------------------+-------------+--------------+------------+------------+
+; Slack  ; From Node               ; To Node                 ; Launch Clock       ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------------+-------------------------+--------------------+-------------+--------------+------------+------------+
+; -0.732 ; PC:contador|out[0]      ; PC:contador|out[0]      ; PC:contador|out[0] ; clk         ; 0.000        ; 3.716      ; 3.438      ;
+; -0.732 ; PC:contador|out[0]      ; PC:contador|out[3]      ; PC:contador|out[0] ; clk         ; 0.000        ; 3.716      ; 3.438      ;
+; -0.726 ; PC:contador|out[0]      ; PC:contador|out[2]      ; PC:contador|out[0] ; clk         ; 0.000        ; 3.716      ; 3.444      ;
+; -0.679 ; PC:contador|out[0]      ; PC:contador|out[1]      ; PC:contador|out[0] ; clk         ; 0.000        ; 3.716      ; 3.491      ;
+; -0.232 ; PC:contador|out[0]      ; PC:contador|out[0]      ; PC:contador|out[0] ; clk         ; -0.500       ; 3.716      ; 3.438      ;
+; -0.232 ; PC:contador|out[0]      ; PC:contador|out[3]      ; PC:contador|out[0] ; clk         ; -0.500       ; 3.716      ; 3.438      ;
+; -0.226 ; PC:contador|out[0]      ; PC:contador|out[2]      ; PC:contador|out[0] ; clk         ; -0.500       ; 3.716      ; 3.444      ;
+; -0.179 ; PC:contador|out[0]      ; PC:contador|out[1]      ; PC:contador|out[0] ; clk         ; -0.500       ; 3.716      ; 3.491      ;
+; 2.285  ; PC:contador|out[3]      ; PC:contador|out[3]      ; clk                ; clk         ; 0.000        ; 0.000      ; 2.359      ;
+; 2.287  ; PC:contador|out[3]      ; PC:contador|out[0]      ; clk                ; clk         ; 0.000        ; 0.000      ; 2.361      ;
+; 2.293  ; PC:contador|out[3]      ; PC:contador|out[2]      ; clk                ; clk         ; 0.000        ; 0.000      ; 2.367      ;
+; 2.340  ; PC:contador|out[1]      ; PC:contador|out[1]      ; clk                ; clk         ; 0.000        ; 0.000      ; 2.414      ;
+; 2.557  ; PC:contador|out[2]      ; PC:contador|out[2]      ; clk                ; clk         ; 0.000        ; 0.000      ; 2.631      ;
+; 2.570  ; PC:contador|out[2]      ; PC:contador|out[0]      ; clk                ; clk         ; 0.000        ; 0.000      ; 2.644      ;
+; 2.570  ; PC:contador|out[2]      ; PC:contador|out[3]      ; clk                ; clk         ; 0.000        ; 0.000      ; 2.644      ;
+; 2.690  ; registrador:REGX|out[0] ; registrador:REGX|out[0] ; clk                ; clk         ; 0.000        ; 0.000      ; 2.764      ;
+; 2.758  ; registrador:REGZ|out[1] ; registrador:REGZ|out[0] ; clk                ; clk         ; 0.000        ; 0.000      ; 2.832      ;
+; 2.851  ; registrador:REGY|out[3] ; registrador:REGY|out[3] ; clk                ; clk         ; 0.000        ; 0.000      ; 2.925      ;
+; 2.852  ; registrador:REGY|out[3] ; registrador:REGY|out[2] ; clk                ; clk         ; 0.000        ; 0.000      ; 2.926      ;
+; 2.940  ; registrador:REGY|out[2] ; registrador:REGY|out[1] ; clk                ; clk         ; 0.000        ; 0.000      ; 3.014      ;
+; 2.954  ; registrador:REGZ|out[2] ; registrador:REGZ|out[1] ; clk                ; clk         ; 0.000        ; 0.000      ; 3.028      ;
+; 2.958  ; registrador:REGY|out[1] ; registrador:REGY|out[0] ; clk                ; clk         ; 0.000        ; 0.000      ; 3.032      ;
+; 2.979  ; Control:UC|Tx[0]        ; registrador:REGX|out[0] ; clk                ; clk         ; -0.500       ; 0.000      ; 2.553      ;
+; 2.981  ; registrador:REGX|out[2] ; registrador:REGX|out[2] ; clk                ; clk         ; 0.000        ; 0.000      ; 3.055      ;
+; 3.023  ; PC:contador|out[1]      ; PC:contador|out[2]      ; clk                ; clk         ; 0.000        ; 0.000      ; 3.097      ;
+; 3.033  ; PC:contador|out[1]      ; PC:contador|out[0]      ; clk                ; clk         ; 0.000        ; 0.000      ; 3.107      ;
+; 3.033  ; PC:contador|out[1]      ; PC:contador|out[3]      ; clk                ; clk         ; 0.000        ; 0.000      ; 3.107      ;
+; 3.249  ; registrador:REGY|out[1] ; registrador:REGZ|out[1] ; clk                ; clk         ; 0.000        ; 0.000      ; 3.323      ;
+; 3.316  ; Control:UC|Tx[1]        ; registrador:REGX|out[0] ; clk                ; clk         ; -0.500       ; 0.000      ; 2.890      ;
+; 3.347  ; registrador:REGX|out[1] ; registrador:REGX|out[0] ; clk                ; clk         ; 0.000        ; 0.000      ; 3.421      ;
+; 3.682  ; registrador:REGY|out[2] ; registrador:REGZ|out[2] ; clk                ; clk         ; 0.000        ; 0.000      ; 3.756      ;
+; 3.699  ; Control:UC|Tx[1]        ; registrador:REGX|out[1] ; clk                ; clk         ; -0.500       ; 0.000      ; 3.273      ;
+; 3.804  ; Control:UC|Ty[1]        ; registrador:REGY|out[1] ; clk                ; clk         ; -0.500       ; 0.000      ; 3.378      ;
+; 3.804  ; Control:UC|Ty[1]        ; registrador:REGY|out[0] ; clk                ; clk         ; -0.500       ; 0.000      ; 3.378      ;
+; 3.879  ; Control:UC|Tz[0]        ; registrador:REGZ|out[3] ; clk                ; clk         ; -0.500       ; 0.000      ; 3.453      ;
+; 3.915  ; registrador:REGZ|out[3] ; registrador:REGZ|out[2] ; clk                ; clk         ; 0.000        ; 0.000      ; 3.989      ;
+; 3.994  ; registrador:REGY|out[3] ; registrador:REGZ|out[3] ; clk                ; clk         ; 0.000        ; 0.000      ; 4.068      ;
+; 4.124  ; Control:UC|Ty[0]        ; registrador:REGY|out[2] ; clk                ; clk         ; -0.500       ; 0.000      ; 3.698      ;
+; 4.125  ; Control:UC|Ty[0]        ; registrador:REGY|out[3] ; clk                ; clk         ; -0.500       ; 0.000      ; 3.699      ;
+; 4.125  ; Control:UC|Ty[0]        ; registrador:REGY|out[1] ; clk                ; clk         ; -0.500       ; 0.000      ; 3.699      ;
+; 4.153  ; registrador:REGY|out[1] ; registrador:REGY|out[1] ; clk                ; clk         ; 0.000        ; 0.000      ; 4.227      ;
+; 4.257  ; Control:UC|Tx[0]        ; registrador:REGX|out[2] ; clk                ; clk         ; -0.500       ; 0.000      ; 3.831      ;
+; 4.396  ; registrador:REGY|out[2] ; registrador:REGY|out[2] ; clk                ; clk         ; 0.000        ; 0.000      ; 4.470      ;
+; 4.409  ; registrador:REGY|out[0] ; registrador:REGY|out[0] ; clk                ; clk         ; 0.000        ; 0.000      ; 4.483      ;
+; 4.436  ; registrador:REGZ|out[3] ; registrador:REGZ|out[3] ; clk                ; clk         ; 0.000        ; 0.000      ; 4.510      ;
+; 4.474  ; Control:UC|Tz[1]        ; registrador:REGZ|out[3] ; clk                ; clk         ; -0.500       ; 0.000      ; 4.048      ;
+; 4.484  ; Control:UC|Ty[0]        ; registrador:REGY|out[0] ; clk                ; clk         ; -0.500       ; 0.000      ; 4.058      ;
+; 4.534  ; Control:UC|Tz[0]        ; registrador:REGZ|out[1] ; clk                ; clk         ; -0.500       ; 0.000      ; 4.108      ;
+; 4.539  ; Control:UC|Tz[0]        ; registrador:REGZ|out[2] ; clk                ; clk         ; -0.500       ; 0.000      ; 4.113      ;
+; 4.539  ; Control:UC|Tz[0]        ; registrador:REGZ|out[0] ; clk                ; clk         ; -0.500       ; 0.000      ; 4.113      ;
+; 4.701  ; registrador:REGY|out[0] ; registrador:REGZ|out[0] ; clk                ; clk         ; 0.000        ; 0.000      ; 4.775      ;
+; 4.765  ; Control:UC|Tx[1]        ; registrador:REGX|out[2] ; clk                ; clk         ; -0.500       ; 0.000      ; 4.339      ;
+; 4.813  ; Control:UC|Tz[1]        ; registrador:REGZ|out[1] ; clk                ; clk         ; -0.500       ; 0.000      ; 4.387      ;
+; 4.935  ; Control:UC|Tx[0]        ; registrador:REGX|out[1] ; clk                ; clk         ; -0.500       ; 0.000      ; 4.509      ;
+; 5.015  ; Control:UC|Ty[1]        ; registrador:REGY|out[2] ; clk                ; clk         ; -0.500       ; 0.000      ; 4.589      ;
+; 5.016  ; registrador:REGY|out[0] ; registrador:REGY|out[1] ; clk                ; clk         ; 0.000        ; 0.000      ; 5.090      ;
+; 5.023  ; registrador:REGY|out[1] ; registrador:REGY|out[2] ; clk                ; clk         ; 0.000        ; 0.000      ; 5.097      ;
+; 5.094  ; registrador:REGX|out[2] ; registrador:REGX|out[1] ; clk                ; clk         ; 0.000        ; 0.000      ; 5.168      ;
+; 5.095  ; registrador:REGX|out[1] ; registrador:REGY|out[1] ; clk                ; clk         ; 0.000        ; 0.000      ; 5.169      ;
+; 5.101  ; registrador:REGX|out[1] ; registrador:REGX|out[1] ; clk                ; clk         ; 0.000        ; 0.000      ; 5.175      ;
+; 5.124  ; registrador:REGY|out[1] ; registrador:REGY|out[3] ; clk                ; clk         ; 0.000        ; 0.000      ; 5.198      ;
+; 5.127  ; registrador:REGY|out[0] ; registrador:REGY|out[2] ; clk                ; clk         ; 0.000        ; 0.000      ; 5.201      ;
+; 5.175  ; registrador:REGY|out[2] ; registrador:REGY|out[3] ; clk                ; clk         ; 0.000        ; 0.000      ; 5.249      ;
+; 5.228  ; registrador:REGY|out[0] ; registrador:REGY|out[3] ; clk                ; clk         ; 0.000        ; 0.000      ; 5.302      ;
+; 5.233  ; registrador:REGX|out[2] ; registrador:REGY|out[2] ; clk                ; clk         ; 0.000        ; 0.000      ; 5.307      ;
+; 5.275  ; registrador:REGX|out[0] ; registrador:REGY|out[0] ; clk                ; clk         ; 0.000        ; 0.000      ; 5.349      ;
+; 5.375  ; memory:mem|funcao[1]    ; Control:UC|Tx[0]        ; PC:contador|out[0] ; clk         ; 0.000        ; -4.336     ; 1.113      ;
+; 5.397  ; Control:UC|Tz[1]        ; registrador:REGZ|out[2] ; clk                ; clk         ; -0.500       ; 0.000      ; 4.971      ;
+; 5.397  ; Control:UC|Tz[1]        ; registrador:REGZ|out[0] ; clk                ; clk         ; -0.500       ; 0.000      ; 4.971      ;
+; 5.469  ; Control:UC|Ty[1]        ; registrador:REGY|out[3] ; clk                ; clk         ; -0.500       ; 0.000      ; 5.043      ;
+; 5.629  ; memory:mem|valor[1]     ; registrador:REGX|out[1] ; PC:contador|out[0] ; clk         ; -0.500       ; -4.317     ; 0.886      ;
+; 5.633  ; memory:mem|valor[2]     ; registrador:REGX|out[2] ; PC:contador|out[0] ; clk         ; -0.500       ; -4.321     ; 0.886      ;
+; 5.801  ; registrador:REGX|out[0] ; registrador:REGY|out[1] ; clk                ; clk         ; 0.000        ; 0.000      ; 5.875      ;
+; 5.819  ; memory:mem|funcao[0]    ; Control:UC|Ty[1]        ; PC:contador|out[0] ; clk         ; 0.000        ; -4.333     ; 1.560      ;
+; 5.884  ; registrador:REGX|out[1] ; registrador:REGY|out[2] ; clk                ; clk         ; 0.000        ; 0.000      ; 5.958      ;
+; 5.912  ; registrador:REGX|out[0] ; registrador:REGY|out[2] ; clk                ; clk         ; 0.000        ; 0.000      ; 5.986      ;
+; 5.985  ; registrador:REGX|out[1] ; registrador:REGY|out[3] ; clk                ; clk         ; 0.000        ; 0.000      ; 6.059      ;
+; 6.013  ; registrador:REGX|out[0] ; registrador:REGY|out[3] ; clk                ; clk         ; 0.000        ; 0.000      ; 6.087      ;
+; 6.017  ; memory:mem|funcao[2]    ; Control:UC|Tx[1]        ; PC:contador|out[0] ; clk         ; 0.000        ; -4.338     ; 1.753      ;
+; 6.093  ; registrador:REGX|out[2] ; registrador:REGY|out[3] ; clk                ; clk         ; 0.000        ; 0.000      ; 6.167      ;
+; 6.095  ; memory:mem|funcao[2]    ; Control:UC|Ty[0]        ; PC:contador|out[0] ; clk         ; 0.000        ; -4.338     ; 1.831      ;
+; 6.105  ; memory:mem|funcao[2]    ; Control:UC|Ty[1]        ; PC:contador|out[0] ; clk         ; 0.000        ; -4.338     ; 1.841      ;
+; 6.105  ; memory:mem|funcao[2]    ; Control:UC|Tx[0]        ; PC:contador|out[0] ; clk         ; 0.000        ; -4.338     ; 1.841      ;
+; 6.272  ; memory:mem|funcao[1]    ; Control:UC|Tz[0]        ; PC:contador|out[0] ; clk         ; 0.000        ; -4.336     ; 2.010      ;
+; 6.274  ; memory:mem|funcao[1]    ; Control:UC|Tz[1]        ; PC:contador|out[0] ; clk         ; 0.000        ; -4.336     ; 2.012      ;
+; 6.493  ; memory:mem|funcao[0]    ; Control:UC|Tz[1]        ; PC:contador|out[0] ; clk         ; 0.000        ; -4.333     ; 2.234      ;
+; 6.494  ; memory:mem|funcao[0]    ; Control:UC|Tz[0]        ; PC:contador|out[0] ; clk         ; 0.000        ; -4.333     ; 2.235      ;
+; 7.222  ; memory:mem|funcao[2]    ; Control:UC|Tz[0]        ; PC:contador|out[0] ; clk         ; 0.000        ; -4.338     ; 2.958      ;
+; 7.227  ; memory:mem|funcao[2]    ; Control:UC|Tz[1]        ; PC:contador|out[0] ; clk         ; 0.000        ; -4.338     ; 2.963      ;
+; 8.060  ; memory:mem|funcao[0]    ; Control:UC|Ty[0]        ; PC:contador|out[0] ; clk         ; 0.000        ; -4.333     ; 3.801      ;
+; 8.117  ; memory:mem|funcao[1]    ; Control:UC|Ty[0]        ; PC:contador|out[0] ; clk         ; 0.000        ; -4.336     ; 3.855      ;
+; 8.124  ; memory:mem|funcao[1]    ; Control:UC|Ty[1]        ; PC:contador|out[0] ; clk         ; 0.000        ; -4.336     ; 3.862      ;
+; 8.600  ; memory:mem|funcao[0]    ; Control:UC|Tx[0]        ; PC:contador|out[0] ; clk         ; 0.000        ; -4.333     ; 4.341      ;
+; 8.654  ; memory:mem|funcao[1]    ; Control:UC|Tx[1]        ; PC:contador|out[0] ; clk         ; 0.000        ; -4.336     ; 4.392      ;
+; 9.014  ; memory:mem|funcao[0]    ; Control:UC|Tx[1]        ; PC:contador|out[0] ; clk         ; 0.000        ; -4.333     ; 4.755      ;
++--------+-------------------------+-------------------------+--------------------+-------------+--------------+------------+------------+
+
+
++----------------------------------------------------------------------------------------------------------+
+; Minimum Pulse Width: 'clk'                                                                               ;
++--------+--------------+----------------+------------------+-------+------------+-------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock ; Clock Edge ; Target                  ;
++--------+--------------+----------------+------------------+-------+------------+-------------------------+
+; -2.289 ; 1.000        ; 3.289          ; Port Rate        ; clk   ; Rise       ; clk                     ;
+; 0.247  ; 0.500        ; 0.253          ; High Pulse Width ; clk   ; Rise       ; Control:UC|Tx[0]        ;
+; 0.247  ; 0.500        ; 0.253          ; Low Pulse Width  ; clk   ; Rise       ; Control:UC|Tx[0]        ;
+; 0.247  ; 0.500        ; 0.253          ; High Pulse Width ; clk   ; Rise       ; Control:UC|Tx[1]        ;
+; 0.247  ; 0.500        ; 0.253          ; Low Pulse Width  ; clk   ; Rise       ; Control:UC|Tx[1]        ;
+; 0.247  ; 0.500        ; 0.253          ; High Pulse Width ; clk   ; Rise       ; Control:UC|Ty[0]        ;
+; 0.247  ; 0.500        ; 0.253          ; Low Pulse Width  ; clk   ; Rise       ; Control:UC|Ty[0]        ;
+; 0.247  ; 0.500        ; 0.253          ; High Pulse Width ; clk   ; Rise       ; Control:UC|Ty[1]        ;
+; 0.247  ; 0.500        ; 0.253          ; Low Pulse Width  ; clk   ; Rise       ; Control:UC|Ty[1]        ;
+; 0.247  ; 0.500        ; 0.253          ; High Pulse Width ; clk   ; Rise       ; Control:UC|Tz[0]        ;
+; 0.247  ; 0.500        ; 0.253          ; Low Pulse Width  ; clk   ; Rise       ; Control:UC|Tz[0]        ;
+; 0.247  ; 0.500        ; 0.253          ; High Pulse Width ; clk   ; Rise       ; Control:UC|Tz[1]        ;
+; 0.247  ; 0.500        ; 0.253          ; Low Pulse Width  ; clk   ; Rise       ; Control:UC|Tz[1]        ;
+; 0.247  ; 0.500        ; 0.253          ; High Pulse Width ; clk   ; Fall       ; PC:contador|out[0]      ;
+; 0.247  ; 0.500        ; 0.253          ; Low Pulse Width  ; clk   ; Fall       ; PC:contador|out[0]      ;
+; 0.247  ; 0.500        ; 0.253          ; High Pulse Width ; clk   ; Fall       ; PC:contador|out[1]      ;
+; 0.247  ; 0.500        ; 0.253          ; Low Pulse Width  ; clk   ; Fall       ; PC:contador|out[1]      ;
+; 0.247  ; 0.500        ; 0.253          ; High Pulse Width ; clk   ; Fall       ; PC:contador|out[2]      ;
+; 0.247  ; 0.500        ; 0.253          ; Low Pulse Width  ; clk   ; Fall       ; PC:contador|out[2]      ;
+; 0.247  ; 0.500        ; 0.253          ; High Pulse Width ; clk   ; Fall       ; PC:contador|out[3]      ;
+; 0.247  ; 0.500        ; 0.253          ; Low Pulse Width  ; clk   ; Fall       ; PC:contador|out[3]      ;
+; 0.247  ; 0.500        ; 0.253          ; High Pulse Width ; clk   ; Fall       ; registrador:REGX|out[0] ;
+; 0.247  ; 0.500        ; 0.253          ; Low Pulse Width  ; clk   ; Fall       ; registrador:REGX|out[0] ;
+; 0.247  ; 0.500        ; 0.253          ; High Pulse Width ; clk   ; Fall       ; registrador:REGX|out[1] ;
+; 0.247  ; 0.500        ; 0.253          ; Low Pulse Width  ; clk   ; Fall       ; registrador:REGX|out[1] ;
+; 0.247  ; 0.500        ; 0.253          ; High Pulse Width ; clk   ; Fall       ; registrador:REGX|out[2] ;
+; 0.247  ; 0.500        ; 0.253          ; Low Pulse Width  ; clk   ; Fall       ; registrador:REGX|out[2] ;
+; 0.247  ; 0.500        ; 0.253          ; High Pulse Width ; clk   ; Fall       ; registrador:REGY|out[0] ;
+; 0.247  ; 0.500        ; 0.253          ; Low Pulse Width  ; clk   ; Fall       ; registrador:REGY|out[0] ;
+; 0.247  ; 0.500        ; 0.253          ; High Pulse Width ; clk   ; Fall       ; registrador:REGY|out[1] ;
+; 0.247  ; 0.500        ; 0.253          ; Low Pulse Width  ; clk   ; Fall       ; registrador:REGY|out[1] ;
+; 0.247  ; 0.500        ; 0.253          ; High Pulse Width ; clk   ; Fall       ; registrador:REGY|out[2] ;
+; 0.247  ; 0.500        ; 0.253          ; Low Pulse Width  ; clk   ; Fall       ; registrador:REGY|out[2] ;
+; 0.247  ; 0.500        ; 0.253          ; High Pulse Width ; clk   ; Fall       ; registrador:REGY|out[3] ;
+; 0.247  ; 0.500        ; 0.253          ; Low Pulse Width  ; clk   ; Fall       ; registrador:REGY|out[3] ;
+; 0.247  ; 0.500        ; 0.253          ; High Pulse Width ; clk   ; Fall       ; registrador:REGZ|out[0] ;
+; 0.247  ; 0.500        ; 0.253          ; Low Pulse Width  ; clk   ; Fall       ; registrador:REGZ|out[0] ;
+; 0.247  ; 0.500        ; 0.253          ; High Pulse Width ; clk   ; Fall       ; registrador:REGZ|out[1] ;
+; 0.247  ; 0.500        ; 0.253          ; Low Pulse Width  ; clk   ; Fall       ; registrador:REGZ|out[1] ;
+; 0.247  ; 0.500        ; 0.253          ; High Pulse Width ; clk   ; Fall       ; registrador:REGZ|out[2] ;
+; 0.247  ; 0.500        ; 0.253          ; Low Pulse Width  ; clk   ; Fall       ; registrador:REGZ|out[2] ;
+; 0.247  ; 0.500        ; 0.253          ; High Pulse Width ; clk   ; Fall       ; registrador:REGZ|out[3] ;
+; 0.247  ; 0.500        ; 0.253          ; Low Pulse Width  ; clk   ; Fall       ; registrador:REGZ|out[3] ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; REGX|out[0]|clk         ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; REGX|out[0]|clk         ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; REGX|out[1]|clk         ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; REGX|out[1]|clk         ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; REGX|out[2]|clk         ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; REGX|out[2]|clk         ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; REGY|out[0]|clk         ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; REGY|out[0]|clk         ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; REGY|out[1]|clk         ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; REGY|out[1]|clk         ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; REGY|out[2]|clk         ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; REGY|out[2]|clk         ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; REGY|out[3]|clk         ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; REGY|out[3]|clk         ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; REGZ|out[0]|clk         ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; REGZ|out[0]|clk         ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; REGZ|out[1]|clk         ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; REGZ|out[1]|clk         ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; REGZ|out[2]|clk         ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; REGZ|out[2]|clk         ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; REGZ|out[3]|clk         ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; REGZ|out[3]|clk         ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; UC|Tx[0]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; UC|Tx[0]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; UC|Tx[1]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; UC|Tx[1]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; UC|Ty[0]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; UC|Ty[0]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; UC|Ty[1]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; UC|Ty[1]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; UC|Tz[0]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; UC|Tz[0]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; UC|Tz[1]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; UC|Tz[1]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; clk|combout             ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; clk|combout             ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; contador|out[0]|clk     ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; contador|out[0]|clk     ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; contador|out[1]|clk     ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; contador|out[1]|clk     ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; contador|out[2]|clk     ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; contador|out[2]|clk     ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; contador|out[3]|clk     ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; contador|out[3]|clk     ;
++--------+--------------+----------------+------------------+-------+------------+-------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Minimum Pulse Width: 'PC:contador|out[0]'                                                                           ;
++-------+--------------+----------------+------------------+--------------------+------------+------------------------+
+; Slack ; Actual Width ; Required Width ; Type             ; Clock              ; Clock Edge ; Target                 ;
++-------+--------------+----------------+------------------+--------------------+------------+------------------------+
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; PC:contador|out[0] ; Rise       ; contador|out[0]|regout ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; PC:contador|out[0] ; Rise       ; contador|out[0]|regout ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; PC:contador|out[0] ; Rise       ; memory:mem|funcao[0]   ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; PC:contador|out[0] ; Rise       ; memory:mem|funcao[0]   ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; PC:contador|out[0] ; Rise       ; memory:mem|funcao[1]   ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; PC:contador|out[0] ; Rise       ; memory:mem|funcao[1]   ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; PC:contador|out[0] ; Rise       ; memory:mem|funcao[2]   ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; PC:contador|out[0] ; Rise       ; memory:mem|funcao[2]   ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; PC:contador|out[0] ; Rise       ; memory:mem|valor[1]    ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; PC:contador|out[0] ; Rise       ; memory:mem|valor[1]    ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; PC:contador|out[0] ; Rise       ; memory:mem|valor[2]    ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; PC:contador|out[0] ; Rise       ; memory:mem|valor[2]    ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; PC:contador|out[0] ; Rise       ; mem|Mux5~0|combout     ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; PC:contador|out[0] ; Rise       ; mem|Mux5~0|combout     ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; PC:contador|out[0] ; Rise       ; mem|Mux5~0|dataa       ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; PC:contador|out[0] ; Rise       ; mem|Mux5~0|dataa       ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; PC:contador|out[0] ; Rise       ; mem|funcao[0]|datac    ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; PC:contador|out[0] ; Rise       ; mem|funcao[0]|datac    ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; PC:contador|out[0] ; Rise       ; mem|funcao[1]|datac    ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; PC:contador|out[0] ; Rise       ; mem|funcao[1]|datac    ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; PC:contador|out[0] ; Rise       ; mem|funcao[2]|datac    ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; PC:contador|out[0] ; Rise       ; mem|funcao[2]|datac    ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; PC:contador|out[0] ; Rise       ; mem|valor[1]|datac     ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; PC:contador|out[0] ; Rise       ; mem|valor[1]|datac     ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; PC:contador|out[0] ; Rise       ; mem|valor[2]|datac     ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; PC:contador|out[0] ; Rise       ; mem|valor[2]|datac     ;
++-------+--------------+----------------+------------------+--------------------+------------+------------------------+
+
+
++-----------------------------------------------------------------------+
+; Clock to Output Times                                                 ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; outZ[*]   ; clk        ; 8.974 ; 8.974 ; Fall       ; clk             ;
+;  outZ[0]  ; clk        ; 8.325 ; 8.325 ; Fall       ; clk             ;
+;  outZ[1]  ; clk        ; 8.974 ; 8.974 ; Fall       ; clk             ;
+;  outZ[2]  ; clk        ; 8.121 ; 8.121 ; Fall       ; clk             ;
+;  outZ[3]  ; clk        ; 8.334 ; 8.334 ; Fall       ; clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Clock to Output Times                                         ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; outZ[*]   ; clk        ; 8.121 ; 8.121 ; Fall       ; clk             ;
+;  outZ[0]  ; clk        ; 8.325 ; 8.325 ; Fall       ; clk             ;
+;  outZ[1]  ; clk        ; 8.974 ; 8.974 ; Fall       ; clk             ;
+;  outZ[2]  ; clk        ; 8.121 ; 8.121 ; Fall       ; clk             ;
+;  outZ[3]  ; clk        ; 8.334 ; 8.334 ; Fall       ; clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------------------+
+; Setup Transfers                                                                     ;
++--------------------+--------------------+----------+----------+----------+----------+
+; From Clock         ; To Clock           ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++--------------------+--------------------+----------+----------+----------+----------+
+; clk                ; clk                ; 0        ; 0        ; 35       ; 58       ;
+; PC:contador|out[0] ; clk                ; 33       ; 0        ; 6        ; 4        ;
+; clk                ; PC:contador|out[0] ; 0        ; 5        ; 0        ; 0        ;
+; PC:contador|out[0] ; PC:contador|out[0] ; 3        ; 3        ; 0        ; 0        ;
++--------------------+--------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------------------------+
+; Hold Transfers                                                                      ;
++--------------------+--------------------+----------+----------+----------+----------+
+; From Clock         ; To Clock           ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++--------------------+--------------------+----------+----------+----------+----------+
+; clk                ; clk                ; 0        ; 0        ; 35       ; 58       ;
+; PC:contador|out[0] ; clk                ; 33       ; 0        ; 6        ; 4        ;
+; clk                ; PC:contador|out[0] ; 0        ; 5        ; 0        ; 0        ;
+; PC:contador|out[0] ; PC:contador|out[0] ; 3        ; 3        ; 0        ; 0        ;
++--------------------+--------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No non-DPA dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths                            ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 0     ; 0    ;
+; Unconstrained Input Port Paths  ; 0     ; 0    ;
+; Unconstrained Output Ports      ; 4     ; 4    ;
+; Unconstrained Output Port Paths ; 4     ; 4    ;
++---------------------------------+-------+------+
+
+
++------------------------------------+
+; TimeQuest Timing Analyzer Messages ;
++------------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
+    Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+    Info: Processing started: Tue Dec 13 22:05:24 2016
+Info: Command: quartus_sta memory -c memory
+Info: qsta_default_script.tcl version: #1
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (306004): Started post-fitting delay annotation
+Info (306005): Delay annotation completed successfully
+Warning (335093): TimeQuest Timing Analyzer is analyzing 5 combinational loops as latches.
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'memory.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name clk clk
+    Info (332105): create_clock -period 1.000 -name PC:contador|out[0] PC:contador|out[0]
+Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -8.348
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -8.348            -109.322 clk 
+    Info (332119):    -1.261              -3.544 PC:contador|out[0] 
+Info (332146): Worst-case hold slack is -4.837
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -4.837             -14.495 PC:contador|out[0] 
+    Info (332119):    -0.732              -2.869 clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -2.289
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -2.289              -2.289 clk 
+    Info (332119):     0.500               0.000 PC:contador|out[0] 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 4 warnings
+    Info: Peak virtual memory: 534 megabytes
+    Info: Processing ended: Tue Dec 13 22:05:24 2016
+    Info: Elapsed time: 00:00:00
+    Info: Total CPU time (on all processors): 00:00:01
+
+

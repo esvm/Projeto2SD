@@ -1,0 +1,29 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Setup 'clk'
+Slack : -8.348
+TNS   : -109.322
+
+Type  : Setup 'PC:contador|out[0]'
+Slack : -1.261
+TNS   : -3.544
+
+Type  : Hold 'PC:contador|out[0]'
+Slack : -4.837
+TNS   : -14.495
+
+Type  : Hold 'clk'
+Slack : -0.732
+TNS   : -2.869
+
+Type  : Minimum Pulse Width 'clk'
+Slack : -2.289
+TNS   : -2.289
+
+Type  : Minimum Pulse Width 'PC:contador|out[0]'
+Slack : 0.500
+TNS   : 0.000
+
+------------------------------------------------------------
